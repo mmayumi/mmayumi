@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网上银行薪资计算</title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		/*定义函数完成计算*/
+		function jisuan(){
+			//1.获取存款金额（读取文本框用户的数字）
+		var cunkuanjine=document.getElementById("amount").value
+		// "80000"-->80000;"80000"是字符串
+		var cunkuannum=parseInt(cunkuanjine)//字符串转成整数
+		//2.开始计算
+		//取得存款年利率
+		var lilv=document.getElementById("year").value
+		var lilvnum=parseInt(lilv)
+		var lixi=cunkuannum*lilv
+		var total=cunkuannum+lixi
+		//3.把结果显示到对应文本框.用户可见
+		document.getElementById("lixi").value=lixi
+		document.getElementById("total").value=total
+		}
+	</script>
+	</head>
+	<body>
+       <div class="container text-center">
+	<h1 align="center">个人网银计算</h1>
+	   <table class="table table-bordered text-center" >
+		 <tr class="bg-primary ">
+		 	<td colspan="2">
+		 		个人网银计算
+		 	</td>  
+		 </tr>
+		 <tr>
+		 	<td >存款金额</td>
+		 	<td> 
+		 		<input class="form-control" type="text" placeholder="请输入存款金额" id="amount" >
+		 	</td>
+		 </tr>
+		 <tr>
+		 	<td>存款年限</td>
+		 	<td>
+		 		<select id="year" class="form-control">
+		 			<option value="0.0175">一年(0.0175)</option>
+		 			<option value="0.0225">二年(0.0225)</option>
+		 			<option value="0.0275">三年(0.0275)</option>
+		 			<option value="0.0275">四年(0.0275)</option>
+		 			<option value="0.0275">五年(0.0275)</option>
+		 		</select>
+		 	</td>
+		 </tr>
+		 <tr>
+		 	<td>所得利息</td>
+		 	<td>
+		 		<input class="form-control" type="text" readonly="readonly" id="lixi"> 
+		 	</td>
+		 </tr>
+		 <tr>
+		 	<td>本息合计</td>
+		 	<td>
+		 		<input class="form-control" type="text" readonly="readonly" id="total"> 
+		 	</td>
+		 </tr>
+	    </table>
+	    <tr>
+		 	<td colspan="2">
+		 		<button onclick="jisuan()" class="btn btn-primary btn-block" >开始计算</button>
+		 	</td>
+		 </tr>
+		 开发者信息：2013040520牛志宇
+      </div>
+	</body>
+</html>
